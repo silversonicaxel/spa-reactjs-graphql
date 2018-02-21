@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as vacanciesActions from '../../state/actions/vacancies';
 
 import './Vacancies.css';
 import VacanciesList from './vacanciesList/VacanciesList';
@@ -15,7 +12,7 @@ class Vacancies extends Component {
     };
 
     componentWillMount() {
-        this.props.vacanciesActions.fetchVacancies();
+
     }
 
     render() {
@@ -31,19 +28,4 @@ class Vacancies extends Component {
     }
 }
 
-let mapStateToProps = (state) => {
-    return {
-        vacancies: state.vacanciesState.vacancies
-    };
-};
-
-let mapDispatchToProps = (dispatch) => {
-    return {
-        vacanciesActions: bindActionCreators(vacanciesActions, dispatch)
-    };
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Vacancies);
+export default Vacancies;

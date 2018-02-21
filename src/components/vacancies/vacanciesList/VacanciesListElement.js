@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { setVacancy } from '../../../state/actions/vacancies';
 
 class VacanciesListElement extends Component {
     static propTypes = {
@@ -19,10 +18,6 @@ class VacanciesListElement extends Component {
         total: 0
     };
 
-    static contextTypes = {
-        store: PropTypes.object.isRequired
-    }
-
     constructor (props) {
         super(props);
 
@@ -34,9 +29,6 @@ class VacanciesListElement extends Component {
 
         this.inputRadio.checked = true;
 
-        this.context.store.dispatch(
-            setVacancy(vacancyId)
-        );
     }
 
     render() {

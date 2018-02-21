@@ -1,3 +1,0 @@
-export const RECEIVE_VACANCIES = 'RECEIVE_VACANCIES';
-export const SAVE_VACANCY = 'SAVE_VACANCY';
-export const GET_VACANCY = 'GET_VACANCY';

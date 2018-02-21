@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as vacanciesActions from '../../../state/actions/vacancies';
 
 import './VacanciesOrder.css';
 import VacanciesOrderImage from './VacanciesOrderImage';
@@ -23,7 +20,7 @@ class VacanciesOrder extends Component {
     };
 
     componentWillMount() {
-        this.props.vacanciesActions.fetchSelectedVacancy();
+
     }
 
     displayVacancy() {
@@ -69,20 +66,4 @@ class VacanciesOrder extends Component {
     }
 }
 
-let mapStateToProps = (state) => {
-    return {
-        vacancies: state.vacanciesState.vacancies,
-        vacancyId: state.vacanciesState.selectedVacancy,
-    };
-};
-
-let mapDispatchToProps = (dispatch) => {
-    return {
-        vacanciesActions: bindActionCreators(vacanciesActions, dispatch)
-    };
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(VacanciesOrder);
+export default VacanciesOrder;

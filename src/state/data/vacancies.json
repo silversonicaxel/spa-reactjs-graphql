@@ -1,0 +1,38 @@
+[
+  {
+    "id": 2,
+    "name": "Simple vacature",
+    "period": 15,
+    "price": 49,
+    "discount": 5,
+    "image": "simple.jpg",
+    "features": ["15 dagen online", "HBO", "Na plaatsing direct zichtbaar"]
+  },
+  {
+    "id": 3,
+    "name": "Standaard vacature",
+    "period": 60,
+    "price": 99,
+    "discount": 10,
+    "image": "standard.jpg",
+    "features": ["60 dagen online", "Na plaatsing direct zichtbaar", "Optimaal bereik: LBO/VMBO t/m WO", "Bekijk tot 30 cv's"]
+  },
+  {
+    "id": 4,
+    "name": "2 x Standaard vacature",
+    "period": 60,
+    "price": 169,
+    "discount": 40,
+    "image": "standard2.jpg",
+    "features": ["60 dagen online", "Na plaatsing direct zichtbaar", "Optimaal bereik: LBO/VMBO", "Onbeperkt zoeken", "Bekijk tot 60 cv's"]
+  },
+  {
+    "id": 5,
+    "name": "All-in vacature",
+    "period": 60,
+    "price": 299,
+    "discount": 50,
+    "image": "all-in.jpg",
+    "features": ["60 dagen online", "Na plaatsing direct zichtbaar", "Optimaal bereik: LBO/VMBO t/m WO", "Onbeperkt zoeken", "Bekijk tot 60 cv's"]
+  }
+]

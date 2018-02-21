@@ -1,0 +1,85 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixins.scss';
+
+.vacancies{
+  &__order{
+    width: 35%;
+    min-height: 400px;
+    @include respond(mobile, max){
+      width: 100%;
+      min-height: 0;
+    }
+
+    float: left;
+    @include deep-map-get("color", $colors, "white", "base");
+    @include deep-map-get("background-color", $colors, "blue", "base");
+
+    h4, h5{
+      @include deep-map-get("color", $colors, "white", "base");
+    }
+
+    hr{
+      @include deep-map-get("color", $colors, "white", "base");
+      @include deep-map-get("background-color", $colors, "white", "base");
+    }
+
+    button{
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      border-width: 0;
+      padding: 10px;
+      font-size: 16px;
+      @include deep-map-get("background-color", $colors, "white", "base");
+      @include deep-map-get("color", $colors, "blue", "base");
+    }
+  }
+
+  &__image{
+    text-align: center;
+    margin-top: 30px;
+    @include deep-map-get("background-color", $colors, "white", "base");
+    img{
+      width: 75%;
+    }
+  }
+
+  &__detail{
+    h5 {
+      margin-top:20px;
+    }
+
+    ul{
+      margin: 15px 0;
+      padding: 0;
+      list-style: none;
+      li{
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  &__prices{
+    padding-bottom: 15px;
+    >div {
+      padding: 10px 0px;
+    }
+
+    &--bold{
+      font-weight: bold;
+    }
+
+    &label{
+      float: left;
+      width: 50%;
+      padding-bottom: 5px;
+    }
+
+    &amount{
+      float: right;
+      width: 50%;
+      text-align: right;
+      padding-bottom: 5px;
+    }
+  }
+}

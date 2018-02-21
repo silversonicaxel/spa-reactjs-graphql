@@ -1,0 +1,49 @@
+@import './styles/_variables.scss';
+@import './styles/_mixins.scss';
+@import './styles/_fonts.scss';
+
+body{
+  font-family: $base_font;
+  margin: 0;
+  padding: 0;
+  @include deep-map-get("background-color", $colors, "white", "base");
+  @include deep-map-get("color", $colors, "grey", "dark");
+}
+
+main{
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  border-width: 2px;
+  border-style: solid;
+  @include deep-map-get("border-color", $colors, "blue", "base");
+}
+
+a{
+  text-decoration: none;
+  @include deep-map-get("color", $colors, "grey", "base");
+  transition: color 1s linear;
+
+  &:hover{
+    @include deep-map-get("color", $colors, "blue", "base");
+  }
+}
+
+@include headings(){
+  font-family: $base_font;
+  margin: 0;
+  @include deep-map-get("color", $colors, "blue", "base");
+}
+
+.clearfix {
+  clear: both;
+  height: 0;
+}
+
+hr{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1px;
+  border: 0 none;
+}

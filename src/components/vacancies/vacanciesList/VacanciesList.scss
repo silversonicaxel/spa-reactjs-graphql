@@ -1,0 +1,94 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixins.scss';
+
+.vacancies{
+  &__list{
+    width: 65%;
+    @include respond(mobile, max){
+      width: 100%;
+    }
+
+    float: left;
+
+    h2{
+      margin-bottom: 30px;
+    }
+
+    h5 {
+      @include deep-map-get("color", $colors, "grey", "dark");
+    }
+
+    ul{
+      margin: 15px 0;
+      padding: 0;
+      list-style: none;
+      li{
+        display: block;
+        padding-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__headerlong, &__headershort{
+    @include deep-map-get("color", $colors, "grey", "base");
+    font-size: 12px;
+    margin:10px 0;
+    white-space: nowrap;
+  }
+  &__headerlong{
+    float: left;
+    width: 40%;
+  }
+  &__headershort{
+    float: left;
+    width: 20%;
+    text-align: center;
+
+    &:nth-of-type(4){
+      text-align: right;
+    }
+    @include respond(small, max){
+      width: 30%;
+      &:nth-of-type(3){
+        display: none;
+      }
+    }
+  }
+
+  &__elementtype, &__elementperiod, &__elementprice, &__elementtotal{
+    float: left;
+  }
+
+  &__elementtype{
+    width: 40%;
+  }
+
+  &__elementperiod, &__elementprice, &__elementtotal{
+    width: 20%;
+    text-align: center;
+    @include respond(small, max){
+      width: 30%;
+    }
+  }
+  &__elementprice{
+    text-decoration: line-through;
+    @include respond(small, max){
+      display: none;
+    }
+  }
+  &__elementtotal{
+    font-weight: bold;
+    text-align: right;
+
+    span{
+      display: none;
+      text-decoration: line-through;
+      font-weight: normal;
+
+      @include respond(small, max){
+        display: inline;
+      }
+    }
+  }
+}

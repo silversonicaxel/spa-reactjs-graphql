@@ -1,0 +1,18 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_mixins.scss';
+
+.vacancies{
+  width: 100%;
+  border-width: 2px;
+  border-style: solid;
+  @include deep-map-get("border-color", $colors, "blue", "base");
+
+  >div{
+    box-sizing: border-box;
+    padding: 20px;
+
+    &:last-of-type{
+      padding: 0;
+    }
+  }
+}

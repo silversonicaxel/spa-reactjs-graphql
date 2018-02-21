@@ -1,0 +1,18 @@
+$colors: (
+  "white": (
+    "base": #fff
+  ),
+  "blue": (
+    "base": #56b8c7
+  ),
+  "grey": (
+    "base": #aaa,
+    "dark": #555
+  )
+);
+
+$screen-sizes: (
+  small: 375px,
+  mobile: 767px,
+  tablet: 1023px
+);

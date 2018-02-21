@@ -1,0 +1,16 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_mixins.scss';
+
+header{
+  height: 100px;
+  transition: height 0.5s ease-in-out;
+
+  @include respond(mobile, max){
+    height: 75px;
+  }
+
+  img{
+    height: 100%;
+    max-width: 100%;
+  }
+}

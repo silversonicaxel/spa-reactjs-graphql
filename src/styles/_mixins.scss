@@ -1,0 +1,29 @@
+@mixin deep-map-get($property, $array, $first, $second:"") {
+  @if $second == "" {
+    #{$property}: map-get($array, $first);
+  }
+  @else{
+    #{$property}: map-get(map-get($array, $first), $second);
+  }
+}
+
+@mixin headings($first: 1, $last: 6) {
+  @for $i from $first through $last{
+    h#{$i}{
+      @content;
+    }
+  }
+}
+
+@mixin respond($media, $range) {
+  @if $range == min {
+    @media only screen and (min-width: (map-get($screen-sizes, $media) + 1px )) {
+      @content;
+    }
+  }
+  @else if($range == max) {
+    @media only screen and (max-width: (map-get($screen-sizes, $media))) {
+      @content;
+    }
+  }
+}

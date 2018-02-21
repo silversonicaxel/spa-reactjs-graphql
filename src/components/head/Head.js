@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const Head = () => (
     <div>
-        <Helmet defaultTitle="dpg-spa">
+        <Helmet defaultTitle="spa-reactjs-graphql">
             <meta charSet="utf-8" />
         </Helmet>
     </div>

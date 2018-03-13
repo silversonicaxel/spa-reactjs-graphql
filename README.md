@@ -38,12 +38,10 @@ For document head HTML tags
 npm install --save react-helmet
 ```
 
-##### Redux
-Setup of the Redux state container
+##### graphQL
+Setup of the graphQL
 ```sh
-npm install --save redux
-npm install --save react-redux
-npm install --save redux-thunk
+npm install --save graphql graphql-tools express-graphql 
 ```
 
 

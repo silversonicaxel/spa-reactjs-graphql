@@ -23,7 +23,7 @@ const getVacancy = (args) => {
     var id = args.id;
     return vacanciesData.filter(vacancy => {
             return vacancy.id == id;
-})[0];
+    })[0];
 };
 const getVacancies = (args) => {
     if (args && args.period) {

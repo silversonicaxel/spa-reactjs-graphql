@@ -1,10 +1,11 @@
 const express = require('express');
-const expressGraphql = require('express-graphql');
-const { buildSchema } = require('graphql');
+const bodyParser = require('body-parser');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
+const { makeExecutableSchema } = require('graphql-tools');
 const vacanciesData = require('../data/vacancies');
 
-// graphql schema
-const schema = buildSchema(`
+// graphql type definitions
+const typeDefs = `
     type Vacancy {
         id: Int
         name: String
@@ -12,36 +13,46 @@ const schema = buildSchema(`
     },
     type Query {
         vacancy(id: Int!): Vacancy
-        vacancies(topic: String): [Vacancy]
+        vacancies(period: Int): [Vacancy]
     }
-`);
+`;
+
 
 // graphql resolvers
 const getVacancy = (args) => {
     var id = args.id;
     return vacanciesData.filter(vacancy => {
-        return vacancy.id == id;
-    })[0];
+            return vacancy.id == id;
+})[0];
 };
 const getVacancies = (args) => {
-    if (args.period) {
+    if (args && args.period) {
         var period = args.period;
         return vacanciesData.filter(vacancy => vacancy.period === period);
     } else {
         return vacanciesData;
     }
 };
-const root = {
-    vacancy: getVacancy,
-    vacancies: getVacancies
-};
+
+const resolvers = {
+    Query: {
+        vacancies: getVacancies,
+        vacancy: getVacancy
+    }
+}
+
+// graphql schema build with type definitions and resolver
+const schema = makeExecutableSchema({
+    typeDefs,
+    resolvers
+});
 
 // graphql server
 const app = express();
 const port = 3000;
-app.use('/graphql', expressGraphql({
-    schema: schema,
-    rootValue: root,
-    graphiql: true
+
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use('/graphiql', graphiqlExpress({
+    endpointURL: '/graphql',
 }));
-app.listen(port, () => console.log(`Express GraphQL Server Now Running On localhost:${port}/graphql`));
+app.listen(port, () => console.log(`Express GraphQL Server now running on localhost:${port}/graphql and browserable on localhost:${port}/graphiql`));

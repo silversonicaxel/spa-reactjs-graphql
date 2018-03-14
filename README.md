@@ -38,10 +38,15 @@ For document head HTML tags
 npm install --save react-helmet
 ```
 
-##### graphQL
+##### graphQL and apollo
 Setup of the graphQL
 ```sh
 npm install --save graphql graphql-tools express-graphql 
+```
+
+Setup of apollo
+```sh
+npm install --save body-parser apollo-server-express 
 ```
 
 

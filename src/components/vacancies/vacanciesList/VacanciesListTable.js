@@ -67,5 +67,3 @@ class VacanciesListTable extends Component {
 }
 
 export default VacanciesListTable;
-
-

@@ -47,6 +47,8 @@ npm install --save graphql graphql-tools express-graphql
 Setup of apollo
 ```sh
 npm install --save body-parser apollo-server-express 
+npm install --save apollo-boost react-apollo graphql-tag graphql
+
 ```
 
 

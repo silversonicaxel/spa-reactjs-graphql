@@ -36,7 +36,7 @@ class VacanciesListTable extends Component {
 
                     <ul>
                         {this.props.table.map((vacancy) => (
-                            <VacanciesListElement key={vacancy.id} id={vacancy.id} name={vacancy.name} period={vacancy.period} price={vacancy.price} total={vacancy.finalPrice}/>
+                            <VacanciesListElement key={vacancy.id} id={vacancy.id} name={vacancy.name} period={vacancy.period} price={vacancy.price} total={vacancy.price - vacancy.discount}/>
                         ))}
                     </ul>
                 </form>

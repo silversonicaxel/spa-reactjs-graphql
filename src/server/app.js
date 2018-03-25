@@ -18,22 +18,22 @@ const typeDefs = `
     },
     type Query {
         vacancy(id: Int!): Vacancy
-        vacancies(period: Int): [Vacancy]
+        vacancies(id: Int): [Vacancy]
     }
 `;
 
 
 // graphql resolvers
-const getVacancy = (args) => {
-    var id = args.id;
+const getVacancy = (obj, args) => {
+    const id = args.id;
     return vacanciesData.filter(vacancy => {
-            return vacancy.id == id;
+        return vacancy.id == id;
     })[0];
 };
-const getVacancies = (args) => {
-    if (args && args.period) {
-        var period = args.period;
-        return vacanciesData.filter(vacancy => vacancy.period === period);
+const getVacancies = (obj, args) => {
+    if (args && args.id) {
+        const id = args.id;
+        return vacanciesData.filter(vacancy => vacancy.id === id);
     } else {
         return vacanciesData;
     }

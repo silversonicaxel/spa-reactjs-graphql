@@ -28,7 +28,6 @@ class VacanciesListElement extends Component {
         const vacancyId = this.props.id;
 
         this.inputRadio.checked = true;
-
     }
 
     render() {
@@ -61,5 +60,3 @@ class VacanciesListElement extends Component {
 }
 
 export default VacanciesListElement;
-
-

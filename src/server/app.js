@@ -3,25 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const { makeExecutableSchema } = require('graphql-tools');
+const { typeDefs } = require('./schema');
 const vacanciesData = require('../data/vacancies');
-
-// graphql type definitions
-const typeDefs = `
-    type Vacancy {
-        id: Int
-        name: String
-        period: Int
-        price: Int
-        discount: Int
-        image: String
-        features: [String]
-    },
-    type Query {
-        vacancy(id: Int!): Vacancy
-        vacancies(id: Int): [Vacancy]
-    }
-`;
-
 
 // graphql resolvers
 const getVacancy = (obj, args) => {

@@ -4,30 +4,7 @@ const cors = require('cors');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const { makeExecutableSchema } = require('graphql-tools');
 const { typeDefs } = require('./schema');
-const vacanciesData = require('../data/vacancies');
-
-// graphql resolvers
-const getVacancy = (obj, args) => {
-    const id = args.id;
-    return vacanciesData.filter(vacancy => {
-        return vacancy.id == id;
-    })[0];
-};
-const getVacancies = (obj, args) => {
-    if (args && args.id) {
-        const id = args.id;
-        return vacanciesData.filter(vacancy => vacancy.id === id);
-    } else {
-        return vacanciesData;
-    }
-};
-
-const resolvers = {
-    Query: {
-        vacancies: getVacancies,
-        vacancy: getVacancy
-    }
-}
+const { resolvers } = require('./resolvers');
 
 // graphql schema build with type definitions and resolver
 const schema = makeExecutableSchema({
